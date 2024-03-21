@@ -6,7 +6,7 @@
 /*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:47:41 by proton            #+#    #+#             */
-/*   Updated: 2024/03/08 22:05:24 by proton           ###   ########.fr       */
+/*   Updated: 2024/03/21 18:07:30 by proton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # define EXIT_ERROR write (1, "Error\nExit error\n", 17)
 # define SIZE_ERROR write (1, "Error\nMap size error\n", 21)
 # define NOT_RECO_ERROR write (1, "Error\nWrong syntax error\n", 25)
+# define MAP_ERROR write (1, "Error\nMap error\n", 16)
 
 
 typedef struct s_data
@@ -56,11 +57,15 @@ typedef struct s_map
 }				t_map;
 
 char	**ft_split(char const *s, char c);
-int		free_board(t_map *map);
+int		free_board(char **map, int fd);
 int		check_map_basics(t_map *map);
 int		check_first_last_row(int y, t_map *map);
 int 	check_middle_map_walls(t_map *map);
 int 	check_other_char(t_map *map);
-int 	first_sort(char **map, int x, int y);
+int		first_sort(t_map *map);
+int		is_safe(t_map *map, int x, int y);
+int		recursive_search(t_map *map, int **clone, int x, int y);
+int		**clone_arrays(t_map *map);
+int		image_initialization(t_map *map);
 
 #endif

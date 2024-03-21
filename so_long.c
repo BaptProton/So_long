@@ -6,7 +6,7 @@
 /*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:47:30 by proton            #+#    #+#             */
-/*   Updated: 2024/03/13 10:18:27 by proton           ###   ########.fr       */
+/*   Updated: 2024/03/21 18:07:12 by proton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ static void initialize_map(t_map *map)
 	map->y = 0;
 	map->x_pos = 0;
 	map->y_pos = 0;
-
 }
 
 static int fill_map_struct(t_map *map)
@@ -92,22 +91,22 @@ int main(int argc, char **argv)
 {
 	t_map	map;
 	int		fd;
-	char	**clone;
 
 	if (argc == 2)
 	{
 		fd = open(argv[1], O_RDONLY);
-		map.map = make_map(fd);
+		if (!(map.map = make_map(fd)) && map.map)
+			return (free_board(map.map, fd));
 		initialize_map(&map);
 		if (fill_map_struct(&map))
-			return (free_board(&map));
+			return (free_board(map.map, fd));
 		if (check_map_integrity(&map))
-			return (free_board(&map));
-		clone = map.map;
-		if (first_sort(clone, map.x_pos, map.y_pos))
-			return (free_board(&map));
-		
+			return (free_board(map.map, fd));
+		if (first_sort(&map))
+			return (free_board(map.map, fd));
+		if (image_initilization(&map))
+			return (free_board(map.map, fd));
+		free_board(map.map, fd);
 	}
-	free_board(&map);
 	return (0);
 }

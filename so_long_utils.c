@@ -6,18 +6,20 @@
 /*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 17:35:26 by proton            #+#    #+#             */
-/*   Updated: 2024/03/08 22:05:23 by proton           ###   ########.fr       */
+/*   Updated: 2024/03/21 18:06:49 by proton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	free_board(t_map *map)
+int	free_board(char **map, int fd)
 {
 	int	i;
 
 	i = -1;
-	while (map->map[++i] != NULL)
-		free(map->map[i]);
+	while (map[++i] != NULL)
+		free(map[i]);
+	if (fd != 0)
+		close(fd);
 	return (1);
 }
