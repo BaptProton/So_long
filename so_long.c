@@ -6,7 +6,7 @@
 /*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:47:30 by proton            #+#    #+#             */
-/*   Updated: 2024/03/21 18:07:12 by proton           ###   ########.fr       */
+/*   Updated: 2024/03/22 09:51:19 by proton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ int main(int argc, char **argv)
 			return (free_board(map.map, fd));
 		if (first_sort(&map))
 			return (free_board(map.map, fd));
-		if (image_initilization(&map))
+		if (image_initialization(&map))
 			return (free_board(map.map, fd));
 		free_board(map.map, fd);
 	}
