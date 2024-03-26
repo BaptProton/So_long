@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
+/*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:47:41 by proton            #+#    #+#             */
-/*   Updated: 2024/03/22 15:23:58 by bproton          ###   ########.fr       */
+/*   Updated: 2024/03/26 10:26:35 by proton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,7 @@ int		recursive_search(t_map *map, int **clone, int x, int y);
 int		**clone_arrays(t_map *map);
 int		image_initialization(t_map *map);
 int 	close_win(int keycode, t_data *win);
+int		print_move(int keycode, t_data *win);
+int		map_generation(t_map *map, t_data *win);
 
 #endif

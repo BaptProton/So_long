@@ -3,28 +3,67 @@
 /*                                                        :::      ::::::::   */
 /*   image_gestion.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
+/*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 10:12:24 by proton            #+#    #+#             */
-/*   Updated: 2024/03/22 16:11:15 by bproton          ###   ########.fr       */
+/*   Updated: 2024/03/26 10:34:25 by proton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
+int select_image(t_data *win, int i)
+{
+    char *path;
+    int img_w;
+    int img_h;
+
+    img_w = 32;
+    img_h = 32;
+    if (i = 1)
+        path = "./image_related/walls.xpm";
+    else
+        path = "./image_related/floor.xpm";
+    
+    win.img = mlx_xpm_file_to_image(win.mlx, pf, &img_w, &img_h);
+
+}
+
+int map_generation(t_map *map, t_data *win)
+{
+    int x;
+    int y;
+    int i;
+
+    i = 0;
+    y = -1;
+    while (++y < map->y)
+    {
+        x = -1;
+        while (++x < map->x)
+        {
+            if (map->map[y][x] == '1')
+            {
+                i = 1;
+                select_image(win, i);
+            }
+            else
+            {
+                i = 0;
+                select_image(win, i);
+            }
+        }
+    }
+    return (1);
+}
+
 int image_initialization(t_map *map)
 {
     t_data win;
-    char *path = "./image_related/walls_2.xpm";
-    int img_width;
-    int img_height;
-
-    img_width = 600;
-    img_height = 600;
+    
     win.mlx = mlx_init();
     win.win = mlx_new_window(win.mlx, (map->x * 32), ((map->y + 1) * 32), "so_long");
-    win.img = mlx_xpm_file_to_image(win.mlx, path, &img_width, &img_height);
-    mlx_put_image_to_window(win.mlx, win.win, win.img, 1, 1);
+    map_generation(map, &win);
     mlx_hook(win.win, 2, 1L<<0, close_win, &win);
     mlx_loop(win.mlx);
     return (0);
