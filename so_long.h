@@ -6,7 +6,7 @@
 /*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:47:41 by proton            #+#    #+#             */
-/*   Updated: 2024/03/27 14:37:15 by bproton          ###   ########.fr       */
+/*   Updated: 2024/03/27 15:37:14 by bproton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,9 @@ int		recursive_search(t_map *map, int **clone, int x, int y);
 int		**clone_arrays(t_map *map);
 int		image_initialization(t_map *map);
 int 	close_win(int keycode, t_data *win);
-int		print_move(int keycode, t_data *win);
 int		map_generation(t_map *map, t_data *win);
 int 	select_image(t_data *win, t_map *map, int posx, int posy);
 int		special_images(t_data *win, t_map *map, int posx, int posy);
+void	get_player_to_move(t_map *map, t_data *win);
 
 #endif
