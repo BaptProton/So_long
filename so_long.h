@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:47:41 by proton            #+#    #+#             */
-/*   Updated: 2024/03/26 10:26:35 by proton           ###   ########.fr       */
+/*   Updated: 2024/03/27 14:37:15 by bproton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ typedef struct s_data
 	char	*addr;
 	int		x;
 	int		y;
+	int		img_h;
+	int		img_w;
 	int		endian;
 }			t_data;
 
@@ -54,6 +56,8 @@ typedef struct s_map
 	int         exit;
 	int			x_pos;
 	int			y_pos;
+	int			x_new;
+	int			y_new;
 }				t_map;
 
 char	**ft_split(char const *s, char c);
@@ -70,5 +74,7 @@ int		image_initialization(t_map *map);
 int 	close_win(int keycode, t_data *win);
 int		print_move(int keycode, t_data *win);
 int		map_generation(t_map *map, t_data *win);
+int 	select_image(t_data *win, t_map *map, int posx, int posy);
+int		special_images(t_data *win, t_map *map, int posx, int posy);
 
 #endif

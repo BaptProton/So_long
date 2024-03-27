@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:47:30 by proton            #+#    #+#             */
-/*   Updated: 2024/03/22 09:51:19 by proton           ###   ########.fr       */
+/*   Updated: 2024/03/27 14:29:50 by bproton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static void initialize_map(t_map *map)
 	map->y = 0;
 	map->x_pos = 0;
 	map->y_pos = 0;
+	map->y_new = -1;
 }
 
 static int fill_map_struct(t_map *map)

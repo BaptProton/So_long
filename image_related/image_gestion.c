@@ -3,68 +3,78 @@
 /*                                                        :::      ::::::::   */
 /*   image_gestion.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 10:12:24 by proton            #+#    #+#             */
-/*   Updated: 2024/03/26 10:34:25 by proton           ###   ########.fr       */
+/*   Updated: 2024/03/27 14:58:17 by bproton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int select_image(t_data *win, int i)
+int	special_images(t_data *win, t_map *map, int posx, int posy)
 {
-    char *path;
-    int img_w;
-    int img_h;
+	char	*path;
 
-    img_w = 32;
-    img_h = 32;
-    if (i = 1)
-        path = "./image_related/walls.xpm";
-    else
-        path = "./image_related/floor.xpm";
-    
-    win.img = mlx_xpm_file_to_image(win.mlx, pf, &img_w, &img_h);
-
+	if	(map->map[map->y_new][map->x_new] == '0')
+		return (0);
+	else if (map->map[map->y_new][map->x_new] == '1')
+		return (0);
+	else if (map->map[map->y_new][map->x_new] == 'E')
+		path = "./image_related/Extract.xpm";
+	else if (map->map[map->y_new][map->x_new] == 'C')
+		path = "./image_related/coins.xpm";
+	else
+		path = "./image_related/player.xpm";
+	win->img = mlx_xpm_file_to_image(win->mlx, path, &win->img_w, &win->img_h);
+	mlx_put_image_to_window(win->mlx, win->win, win->img, posx, posy);
+	return (1);
 }
 
-int map_generation(t_map *map, t_data *win)
+int	select_image(t_data *win, t_map *map, int posx, int posy)
 {
-    int x;
-    int y;
-    int i;
+	char	*path;
 
-    i = 0;
-    y = -1;
-    while (++y < map->y)
-    {
-        x = -1;
-        while (++x < map->x)
-        {
-            if (map->map[y][x] == '1')
-            {
-                i = 1;
-                select_image(win, i);
-            }
-            else
-            {
-                i = 0;
-                select_image(win, i);
-            }
-        }
-    }
-    return (1);
+	win->img_w = 32;
+	win->img_h = 32;
+	if (map->map[map->y_new][map->x_new] == '1')
+		path = "./image_related/walls.xpm";
+	else
+		path = "./image_related/floor.xpm";
+	win->img = mlx_xpm_file_to_image(win->mlx, path, &win->img_w, &win->img_h);
+	mlx_put_image_to_window(win->mlx, win->win, win->img, posx, posy);
+	return (1);
 }
 
-int image_initialization(t_map *map)
+int	map_generation(t_map *map, t_data *win)
 {
-    t_data win;
-    
-    win.mlx = mlx_init();
-    win.win = mlx_new_window(win.mlx, (map->x * 32), ((map->y + 1) * 32), "so_long");
-    map_generation(map, &win);
-    mlx_hook(win.win, 2, 1L<<0, close_win, &win);
-    mlx_loop(win.mlx);
-    return (0);
+	int	posx;
+	int	posy;
+
+	posy = 0;
+	while (++map->y_new < map->y + 1)
+	{
+		posx = 0;
+		map->x_new = -1;
+		while (++map->x_new < map->x)
+		{
+			select_image(win, map, posx, posy);
+			special_images(win, map, posx, posy);
+			posx += 32;
+		}
+		posy += 32;
+	}
+	return (1);
+}
+
+int	image_initialization(t_map *map)
+{
+	t_data	win;
+	
+	win.mlx = mlx_init();
+	win.win = mlx_new_window(win.mlx, (map->x * 32), ((map->y + 1) * 32), "so_long");
+	map_generation(map, &win);
+	mlx_hook(win.win, 2, 1L<<0, close_win, &win);
+	mlx_loop(win.mlx);
+	return (0);
 }
