@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
+/*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:47:41 by proton            #+#    #+#             */
-/*   Updated: 2024/03/28 15:26:23 by bproton          ###   ########.fr       */
+/*   Updated: 2024/03/28 17:30:23 by proton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,10 @@ int		is_safe(t_map *map, int x, int y);
 int		recursive_search(t_map *map, int **clone, int x, int y);
 int		**clone_arrays(t_map *map);
 int		image_initialization(t_map *map);
-int 	close_win(int keycode, t_map *win);
 int		map_generation(t_map *map);
 int 	select_image(t_map *map, int posx, int posy);
 int		special_images(t_map *map, int posx, int posy);
-void 	get_player_to_move(t_map *map);
+int 	key_pressed(int keycode, t_map *map);
+void 	move_player(t_map *map, int move);
 
 #endif

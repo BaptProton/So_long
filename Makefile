@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bproton <bproton@student.42.fr>            +#+  +:+       +#+         #
+#    By: proton <proton@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/22 17:21:02 by proton            #+#    #+#              #
-#    Updated: 2024/03/22 15:26:16 by bproton          ###   ########.fr        #
+#    Updated: 2024/03/28 17:31:22 by proton           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror -I./map_parsing -I./image_related 
 SRC =	so_long.c ft_split.c so_long_utils.c ./map_parsing/parsing_utils.c \
 		./map_parsing/map_algorithm.c ./image_related/image_gestion.c \
-		./image_related/Window_utils.c 
+		./image_related/image_utils.c 
 
 
 OBJECTS = $(SRC:.c=.o)
