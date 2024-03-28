@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Window_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
+/*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 14:54:55 by bproton           #+#    #+#             */
-/*   Updated: 2024/03/27 15:52:25 by bproton          ###   ########.fr       */
+/*   Updated: 2024/03/28 07:13:02 by proton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int	close_win(int keycode, t_data *win)
+int	close_win(int keycode, t_map *win)
 {
 	
 	if (keycode == ESC_KEY)
@@ -25,7 +25,20 @@ int	close_win(int keycode, t_data *win)
 	return (0);
 }
 
-// void get_player_to_move(t_map *map, t_data *win)
+// int move_player(int keycode, t_map *map)
 // {
-// 	mlx_key_hook(winwin, )
+// 	char **clone;
+
+// 	clone = map->map;
+// 	if (keycode == W_KEY)
+// 	{
+// 		map->map[map->y_pos][map->x_pos] == '0';
+		
+// 	}
+// }
+
+// void get_player_to_move(t_map *map)
+// {
+// 	mlx_hook(map->win, 2, 1L<<0, move_player, map);
+	
 // }

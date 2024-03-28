@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
+/*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:47:30 by proton            #+#    #+#             */
-/*   Updated: 2024/03/27 14:29:50 by bproton          ###   ########.fr       */
+/*   Updated: 2024/03/27 17:44:23 by proton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 static void initialize_map(t_map *map)
 {
+	map->img_h = 0;
+	map->img_w = 0;
 	map->coins = 0;
 	map->player = 0;
 	map->exit = 0;
@@ -63,7 +65,6 @@ static int check_map_integrity(t_map *map)
 		return (1);
 	if (check_other_char(map))
 		return (1);
-	
 	return (0);
 }
 
@@ -101,12 +102,20 @@ int main(int argc, char **argv)
 		initialize_map(&map);
 		if (fill_map_struct(&map))
 			return (free_board(map.map, fd));
+			printf("x value %d\n", map.x);
+			printf("y value %d\n", map.y);
 		if (check_map_integrity(&map))
 			return (free_board(map.map, fd));
+			printf("x value %d\n", map.x);
+			printf("y value %d\n", map.y);
 		if (first_sort(&map))
 			return (free_board(map.map, fd));
+			printf("x value %d\n", map.x);
+			printf("y value %d\n", map.y);
 		if (image_initialization(&map))
 			return (free_board(map.map, fd));
+			printf("x value %d\n", map.x);
+			printf("y value %d\n", map.y);
 		free_board(map.map, fd);
 	}
 	return (0);

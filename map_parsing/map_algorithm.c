@@ -6,7 +6,7 @@
 /*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 17:35:20 by proton            #+#    #+#             */
-/*   Updated: 2024/03/21 18:05:27 by proton           ###   ########.fr       */
+/*   Updated: 2024/03/27 17:44:41 by proton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	first_sort(t_map *map)
 
 	if (!(clone = clone_arrays(map)))
 		return (1);
-	y = -1;		
+	y = -1;
 	while (++y < map->y)
 	{
 		x = -1;
