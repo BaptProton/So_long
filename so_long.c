@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:47:30 by proton            #+#    #+#             */
-/*   Updated: 2024/03/27 17:44:23 by proton           ###   ########.fr       */
+/*   Updated: 2024/03/28 15:23:36 by bproton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,20 +102,12 @@ int main(int argc, char **argv)
 		initialize_map(&map);
 		if (fill_map_struct(&map))
 			return (free_board(map.map, fd));
-			printf("x value %d\n", map.x);
-			printf("y value %d\n", map.y);
 		if (check_map_integrity(&map))
 			return (free_board(map.map, fd));
-			printf("x value %d\n", map.x);
-			printf("y value %d\n", map.y);
 		if (first_sort(&map))
 			return (free_board(map.map, fd));
-			printf("x value %d\n", map.x);
-			printf("y value %d\n", map.y);
 		if (image_initialization(&map))
 			return (free_board(map.map, fd));
-			printf("x value %d\n", map.x);
-			printf("y value %d\n", map.y);
 		free_board(map.map, fd);
 	}
 	return (0);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:47:41 by proton            #+#    #+#             */
-/*   Updated: 2024/03/27 18:04:28 by proton           ###   ########.fr       */
+/*   Updated: 2024/03/28 15:26:23 by bproton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,6 @@ int 	close_win(int keycode, t_map *win);
 int		map_generation(t_map *map);
 int 	select_image(t_map *map, int posx, int posy);
 int		special_images(t_map *map, int posx, int posy);
-void	get_player_to_move(t_map *map);
+void 	get_player_to_move(t_map *map);
 
 #endif

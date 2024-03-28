@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   image_gestion.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 10:12:24 by proton            #+#    #+#             */
-/*   Updated: 2024/03/28 07:12:33 by proton           ###   ########.fr       */
+/*   Updated: 2024/03/28 15:26:30 by bproton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,7 @@ int	image_initialization(t_map *map)
 	map->mlx = mlx_init();
 	map->win = mlx_new_window(map->mlx, (map->x * 32), ((map->y + 1) * 32), "so_long");
 	map_generation(map);
-	// get_player_to_move(map);
-	mlx_hook(map->win, 2, 1L<<0, close_win, map);
+	get_player_to_move(map);
 	mlx_loop(map->mlx);
 	return (0);
 }
