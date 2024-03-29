@@ -6,7 +6,7 @@
 /*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 10:12:24 by proton            #+#    #+#             */
-/*   Updated: 2024/03/29 12:55:23 by bproton          ###   ########.fr       */
+/*   Updated: 2024/03/29 13:52:40 by bproton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	image_initialization(t_map *map)
 	map->win = mlx_new_window(map->mlx, (map->x * 32), ((map->y + 1) * 32), "so_long");
 	map_generation(map);
 	mlx_hook(map->win, 2, 1L<<0, key_pressed, map);
-	mlx_hook(map->win, 17, 1L<<0, close_window, map);
+	// mlx_hook(map->win, 17, 1L<<0, close_window, map);
 	mlx_loop(map->mlx);
 	return (0);
 }
