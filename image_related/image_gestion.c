@@ -6,7 +6,7 @@
 /*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 10:12:24 by proton            #+#    #+#             */
-/*   Updated: 2024/03/28 18:02:09 by proton           ###   ########.fr       */
+/*   Updated: 2024/03/29 09:16:01 by proton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	select_image(t_map *map, int posx, int posy)
 		path = "./image_related/walls.xpm";
 	else
 		path = "./image_related/floor.xpm";
-	 map->img = mlx_xpm_file_to_image(map->mlx, path, &map->img_w, &map->img_h);
+	map->img = mlx_xpm_file_to_image(map->mlx, path, &map->img_w, &map->img_h);
 	mlx_put_image_to_window(map->mlx, map->win, map->img, posx, posy);
 	return (1);
 }

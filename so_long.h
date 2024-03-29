@@ -6,7 +6,7 @@
 /*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:47:41 by proton            #+#    #+#             */
-/*   Updated: 2024/03/28 17:30:23 by proton           ###   ########.fr       */
+/*   Updated: 2024/03/29 09:15:55 by proton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,6 @@ int 	select_image(t_map *map, int posx, int posy);
 int		special_images(t_map *map, int posx, int posy);
 int 	key_pressed(int keycode, t_map *map);
 void 	move_player(t_map *map, int move);
+void 	replace_player_image(t_map *map, int posy, int posx, int move);
 
 #endif
