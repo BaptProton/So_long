@@ -3,19 +3,19 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: proton <proton@student.42.fr>              +#+  +:+       +#+         #
+#    By: bproton <bproton@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/22 17:21:02 by proton            #+#    #+#              #
-#    Updated: 2024/03/28 17:31:22 by proton           ###   ########.fr        #
+#    Updated: 2024/04/02 15:29:12 by bproton          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I./map_parsing -I./image_related 
+CFLAGS = -Wall -Wextra -Werror -I./map_parsing -I./image_related
 SRC =	so_long.c ft_split.c so_long_utils.c ./map_parsing/parsing_utils.c \
 		./map_parsing/map_algorithm.c ./image_related/image_gestion.c \
-		./image_related/image_utils.c 
+		./image_related/image_utils.c ./image_related/moves_player.c \
 
 
 OBJECTS = $(SRC:.c=.o)
