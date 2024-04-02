@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_algorithm.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
+/*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 17:35:20 by proton            #+#    #+#             */
-/*   Updated: 2024/04/02 15:23:02 by bproton          ###   ########.fr       */
+/*   Updated: 2024/04/02 17:39:42 by proton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,7 +164,7 @@ int	first_sort(t_map *map)
 				// }
 		}
 	}
-	free_board(clone, 0);
+	// free_board(clone, 0);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:47:30 by proton            #+#    #+#             */
-/*   Updated: 2024/04/02 10:09:36 by proton           ###   ########.fr       */
+/*   Updated: 2024/04/02 17:41:55 by proton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ static void initialize_map(t_map *map)
 	map->x_pos = 0;
 	map->y_pos = 0;
 	map->y_new = -1;
+	map->move_player = 0;
 }
 
 static int fill_map_struct(t_map *map)

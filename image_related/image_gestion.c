@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   image_gestion.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
+/*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 10:12:24 by proton            #+#    #+#             */
-/*   Updated: 2024/04/02 15:31:45 by bproton          ###   ########.fr       */
+/*   Updated: 2024/04/02 17:54:55 by proton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	special_images(t_map *map, int posx, int posy)
 {
 	char	*path;
 
-	if	(map->map[map->y_new][map->x_new] == '0')
+	if (map->map[map->y_new][map->x_new] == '0')
 		return (0);
 	else if (map->map[map->y_new][map->x_new] == '1')
 		return (0);
@@ -72,10 +72,11 @@ int	map_generation(t_map *map)
 int	image_initialization(t_map *map)
 {
 	map->mlx = mlx_init();
-	map->win = mlx_new_window(map->mlx, (map->x * 32), ((map->y + 1) * 32), "so_long");
+	map->win = mlx_new_window(map->mlx, (map->x * 32),
+			((map->y + 1) * 32), "so_long");
 	map_generation(map);
-	mlx_hook(map->win, 2, 1L<<0, key_pressed, map);
-	mlx_hook(map->win, 17, 1L<<2, close_window, map);
+	mlx_hook(map->win, 2, 1L << 0, key_pressed, map);
+	mlx_hook(map->win, 17, 1L << 2, close_window, map);
 	mlx_loop(map->mlx);
 	return (0);
 }

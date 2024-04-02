@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
+/*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:47:41 by proton            #+#    #+#             */
-/*   Updated: 2024/04/02 15:34:26 by bproton          ###   ########.fr       */
+/*   Updated: 2024/04/02 17:41:40 by proton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_map
 	int			y_pos;
 	int			x_new;
 	int			y_new;
+	int			move_player;
 }				t_map;
 
 char	**ft_split(char const *s, char c);
@@ -77,8 +78,10 @@ void 	move_player_positiv_x(t_map *map, int move);
 void 	move_player_negativ_y(t_map *map, int move);
 void 	move_player_positiv_y(t_map *map, int move);
 void 	replace_player_image(t_map *map, int posy, int posx, int move);
+void	replace_if_exit(t_map *map, int posy, int posx);
 int 	close_window(int keycode, t_map *map);
 int		search_recursive(t_map *map, char **clone, int x, int y);
+void	replace_if_exit(t_map *map, int posy, int posx);
 int 	finish_game(int keycode, t_map *map);
 
 #endif
