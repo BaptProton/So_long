@@ -6,7 +6,7 @@
 /*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:47:41 by proton            #+#    #+#             */
-/*   Updated: 2024/03/29 09:15:55 by proton           ###   ########.fr       */
+/*   Updated: 2024/04/02 10:30:09 by proton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ typedef struct s_map
 
 char	**ft_split(char const *s, char c);
 int		free_board(char **map, int fd);
+int		free_int_board(int **clone, t_map *map);
 int		check_map_basics(t_map *map);
 int		check_first_last_row(int y, t_map *map);
 int 	check_middle_map_walls(t_map *map);
@@ -71,7 +72,10 @@ int		map_generation(t_map *map);
 int 	select_image(t_map *map, int posx, int posy);
 int		special_images(t_map *map, int posx, int posy);
 int 	key_pressed(int keycode, t_map *map);
-void 	move_player(t_map *map, int move);
+void 	move_player_y(t_map *map, int move);
+void 	move_player_x(t_map *map, int move);
 void 	replace_player_image(t_map *map, int posy, int posx, int move);
+int 	close_window(int keycode, t_map *map);
+int		search_recursive(t_map *map, char **clone, int x, int y);
 
 #endif
