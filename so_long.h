@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:47:41 by proton            #+#    #+#             */
-/*   Updated: 2024/04/03 09:30:52 by proton           ###   ########.fr       */
+/*   Updated: 2024/04/03 16:11:46 by bproton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include "minilibx/mlx.h"
+# include "ft_printf/ft_printf.h"
 
 # define ESC_KEY 53
 # define W_KEY 13
@@ -36,6 +37,7 @@
 # define NOT_RECO_ERROR write (1, "Error\nWrong syntax error\n", 25)
 # define MAP_ERROR write (1, "Error\nMap error\n", 16)
 # define NAME_FILE write (1, "Error\nWrong name\n", 17)
+# define OPEN_FAULT write (1, "Error\nOpen error\n", 17)
 
 
 typedef struct s_map
@@ -49,8 +51,8 @@ typedef struct s_map
 	int			x;
 	int			y;
 	int			player;
-	int         coins;
-	int         exit;
+	int			coins;
+	int			exit;
 	int			x_pos;
 	int			y_pos;
 	int			x_new;
@@ -60,7 +62,7 @@ typedef struct s_map
 
 char	**ft_split(char const *s, char c);
 int		check_name(char *str);
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_strcmp(char *s1,  char *s2);
 int		free_board(char **map, int fd);
 int		free_int_board(int **clone, t_map *map);
 int		check_map_basics(t_map *map);
@@ -69,8 +71,6 @@ int 	check_middle_map_walls(t_map *map);
 int 	check_other_char(t_map *map);
 int		first_sort(t_map *map);
 int		is_safe(t_map *map, int x, int y);
-int		recursive_search(t_map *map, int **clone, int x, int y);
-int		**clone_arrays(t_map *map);
 int		image_initialization(t_map *map);
 int		map_generation(t_map *map);
 int 	select_image(t_map *map, int posx, int posy);
@@ -85,6 +85,5 @@ void	replace_if_exit(t_map *map, int posy, int posx);
 int 	close_window(int keycode, t_map *map);
 int		search_recursive(t_map *map, char **clone, int x, int y);
 void	replace_if_exit(t_map *map, int posy, int posx);
-int 	finish_game(int keycode, t_map *map);
 
 #endif

@@ -3,20 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   moves_player.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 15:28:10 by bproton           #+#    #+#             */
-/*   Updated: 2024/04/02 21:08:56 by proton           ###   ########.fr       */
+/*   Updated: 2024/04/03 11:32:50 by bproton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
+
 void	move_player_negativ_x(t_map *map, int move)
 {
 	if (move == A_KEY && map->map[map->y_pos][map->x_pos - 1] != '1')
 	{
-		printf("%d\n", ++map->move_player);
+		ft_printf("%d\n", ++map->move_player);
 		if (map->map[map->y_pos][map->x_pos - 1] == 'C')
 		{
 			map->coins -= 1;
@@ -36,7 +37,7 @@ void	move_player_positiv_x(t_map *map, int move)
 {
 	if (move == D_KEY && map->map[map->y_pos][map->x_pos + 1] != '1')
 	{
-		printf("%d\n", ++map->move_player);
+		ft_printf("%d\n", ++map->move_player);
 		if (map->map[map->y_pos][map->x_pos + 1] == 'C')
 		{
 			map->coins -= 1;
@@ -56,7 +57,7 @@ void	move_player_negativ_y(t_map *map, int move)
 {
 	if (move == W_KEY && map->map[map->y_pos - 1][map->x_pos] != '1')
 	{
-		printf("%d\n", ++map->move_player);
+		ft_printf("%d\n", ++map->move_player);
 		if (map->map[map->y_pos - 1][map->x_pos] == 'C')
 		{
 			map->coins -= 1;
@@ -76,7 +77,7 @@ void	move_player_positiv_y(t_map *map, int move)
 {
 	if (move == S_KEY && map->map[map->y_pos + 1][map->x_pos] != '1')
 	{
-		printf("%d\n", ++map->move_player);
+		ft_printf("%d\n", ++map->move_player);
 		if (map->map[map->y_pos + 1][map->x_pos] == 'C')
 		{
 			map->coins -= 1;

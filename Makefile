@@ -6,7 +6,7 @@
 #    By: bproton <bproton@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/22 17:21:02 by proton            #+#    #+#              #
-#    Updated: 2024/04/02 15:29:12 by bproton          ###   ########.fr        #
+#    Updated: 2024/04/03 16:21:02 by bproton          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,14 +20,16 @@ SRC =	so_long.c ft_split.c so_long_utils.c ./map_parsing/parsing_utils.c \
 
 OBJECTS = $(SRC:.c=.o)
 
-
 all: $(NAME)
 
 libmlx.a:
 	$(MAKE) -C minilibx
 
+libftprintf.a:
+	$(MAKE) -C ft_printf
+
 $(NAME): $(OBJECTS)
-	$(CC) $(OBJECTS) -Lminilibx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	$(CC) $(OBJECTS) -Lft_printf -lftprintf -Lminilibx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 %.o : %.c
 	$(CC) $(CFLAGS) -Iminilibx -c $< -o $@

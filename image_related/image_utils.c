@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   image_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 14:54:55 by bproton           #+#    #+#             */
-/*   Updated: 2024/04/03 09:04:22 by proton           ###   ########.fr       */
+/*   Updated: 2024/04/03 16:11:46 by bproton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,15 +67,8 @@ int	close_window(int keycode, t_map *map)
 {
 	(void)keycode;
 	mlx_clear_window(map->mlx, map->win);
-	mlx_destroy_window(map->mlx, map->win);
-	mlx_destroy_image(map->mlx, map->img);
 	free_board(map->map, 0);
+	mlx_destroy_image(map->mlx, map->img);
+	mlx_destroy_window(map->mlx, map->win);
 	exit(0);
 }
-
-// int finish_game(t_map *map)
-// {
-// 	if (map->map[map->y_pos][map->x_pos] == 'E' && map->coins == 0)
-// 		exit(0);
-// 	return (0);
-// }
