@@ -6,7 +6,7 @@
 /*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 14:54:55 by bproton           #+#    #+#             */
-/*   Updated: 2024/04/02 17:58:31 by proton           ###   ########.fr       */
+/*   Updated: 2024/04/03 09:04:22 by proton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,9 @@ void	replace_player_image(t_map *map, int posy, int posx, int move)
 {
 	char	*path_floor;
 	char	*path_player;
-	char	*path_ex;
 
 	path_floor = "./image_related/floor.xpm";
 	path_player = "./image_related/player.xpm";
-	path_ex = "./image_related/Extract.xpm";
 	if (move == 1)
 	{
 		map->img = mlx_xpm_file_to_image(map->mlx, path_floor,
@@ -33,11 +31,7 @@ void	replace_player_image(t_map *map, int posy, int posx, int move)
 				&map->img_w, &map->img_h);
 		mlx_put_image_to_window(map->mlx, map->win, map->img, posx, posy);
 		if (map->map[map->y_pos][map->x_pos] == 'E')
-		{
-			map->img = mlx_xpm_file_to_image(map->mlx, path_ex,
-					&map->img_w, &map->img_h);
-			mlx_put_image_to_window(map->mlx, map->win, map->img, posx, posy);
-		}
+			replace_if_exit(map, posy, posx);
 		map->img = mlx_xpm_file_to_image(map->mlx, path_player,
 				&map->img_w, &map->img_h);
 		mlx_put_image_to_window(map->mlx, map->win, map->img, posx, posy);

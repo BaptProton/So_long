@@ -6,7 +6,7 @@
 /*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:47:41 by proton            #+#    #+#             */
-/*   Updated: 2024/04/02 17:41:40 by proton           ###   ########.fr       */
+/*   Updated: 2024/04/03 09:30:52 by proton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@
 # define SIZE_ERROR write (1, "Error\nMap size error\n", 21)
 # define NOT_RECO_ERROR write (1, "Error\nWrong syntax error\n", 25)
 # define MAP_ERROR write (1, "Error\nMap error\n", 16)
+# define NAME_FILE write (1, "Error\nWrong name\n", 17)
 
 
 typedef struct s_map
@@ -58,6 +59,8 @@ typedef struct s_map
 }				t_map;
 
 char	**ft_split(char const *s, char c);
+int		check_name(char *str);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		free_board(char **map, int fd);
 int		free_int_board(int **clone, t_map *map);
 int		check_map_basics(t_map *map);

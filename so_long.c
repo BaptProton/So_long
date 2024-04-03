@@ -6,7 +6,7 @@
 /*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:47:30 by proton            #+#    #+#             */
-/*   Updated: 2024/04/02 17:41:55 by proton           ###   ########.fr       */
+/*   Updated: 2024/04/03 09:12:31 by proton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,8 @@ int main(int argc, char **argv)
 
 	if (argc == 2)
 	{
+		if (!check_name(argv[1]))
+			return (NAME_FILE);
 		fd = open(argv[1], O_RDONLY);
 		if (!(map.map = make_map(fd)) && map.map)
 			return (free_board(map.map, fd));
