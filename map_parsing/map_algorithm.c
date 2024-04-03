@@ -6,7 +6,7 @@
 /*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 17:35:20 by proton            #+#    #+#             */
-/*   Updated: 2024/04/03 13:55:55 by bproton          ###   ########.fr       */
+/*   Updated: 2024/04/03 17:01:05 by bproton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ char	**clone_map(t_map *map)
 		while (++x < map->x)
 			clone[y][x] = map->map[y][x];
 		clone[y][x] = '\0';
+		printf("%p\n", clone[y]);
 	}
 	clone[y] = NULL;
 	return (clone);
@@ -101,6 +102,9 @@ int	first_sort(t_map *map)
 			}
 		}
 	}
+	y = -1;
+	while (++y < map->y + 1)
+		printf("%p\n", clone[y]);
 	free_board(clone, 0);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:47:30 by proton            #+#    #+#             */
-/*   Updated: 2024/04/03 16:22:33 by bproton          ###   ########.fr       */
+/*   Updated: 2024/04/03 16:57:16 by bproton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,6 @@ int main(int argc, char **argv)
 	t_map	map;
 	int		fd;
 
-	sleep(10);
 	if (argc == 2)
 	{
 		if (!check_name(argv[1]))
