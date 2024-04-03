@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
+/*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:47:30 by proton            #+#    #+#             */
-/*   Updated: 2024/04/03 16:57:16 by bproton          ###   ########.fr       */
+/*   Updated: 2024/04/03 18:55:39 by proton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void initialize_map(t_map *map)
+static void	initialize_map(t_map *map)
 {
 	map->img_h = 0;
 	map->img_w = 0;
@@ -27,7 +27,7 @@ static void initialize_map(t_map *map)
 	map->move_player = 0;
 }
 
-static int fill_map_struct(t_map *map)
+static int	fill_map_struct(t_map *map)
 {
 	int	x;
 	int	y;
@@ -56,7 +56,7 @@ static int fill_map_struct(t_map *map)
 	return (0);
 }
 
-static int check_map_integrity(t_map *map)
+static int	check_map_integrity(t_map *map)
 {
 	if (check_map_basics(map))
 		return (1);
@@ -74,7 +74,7 @@ static char	**make_map(int fd)
 	char	**map;
 	char	*temp;
 	int		check;
-	
+
 	temp = malloc(sizeof(char) * BUFFER_SIZE);
 	if (!temp)
 		return (NULL);
@@ -87,11 +87,12 @@ static char	**make_map(int fd)
 	temp[check] = '\0';
 	map = ft_split(temp, '\n');
 	free(temp);
+	close(fd);
 	return (map);
 }
 
-int main(int argc, char **argv)
-{	
+int	main(int argc, char **argv)
+{
 	t_map	map;
 	int		fd;
 

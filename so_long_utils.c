@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
+/*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 17:35:26 by proton            #+#    #+#             */
-/*   Updated: 2024/04/03 16:45:43 by bproton          ###   ########.fr       */
+/*   Updated: 2024/04/03 18:53:54 by proton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,11 @@ int	free_board(char **map, int fd)
 {
 	int	i;
 
-	i = 0;
+	i = -1;
 	if (map)
 	{
 		while (map[++i])
-		{
 			free(map[i]);
-		}
 		free(map);
 	}
 	if (fd != 0)
@@ -30,14 +28,14 @@ int	free_board(char **map, int fd)
 	return (1);
 }
 
-int	ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(const char *s1, const char *s2)
 {
 	int	i;
 
 	i = 0;
 	while (s1[i] && s2[i])
 	{
-		if ((char)s1[i] != (char)s2[i])
+		if (s1[i] != s2[i])
 			return (0);
 		i++;
 	}

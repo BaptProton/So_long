@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
+/*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:47:41 by proton            #+#    #+#             */
-/*   Updated: 2024/04/03 16:11:46 by bproton          ###   ########.fr       */
+/*   Updated: 2024/04/03 19:01:42 by proton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@
 # define NAME_FILE write (1, "Error\nWrong name\n", 17)
 # define OPEN_FAULT write (1, "Error\nOpen error\n", 17)
 
-
 typedef struct s_map
 {
 	void		*mlx;
@@ -62,27 +61,27 @@ typedef struct s_map
 
 char	**ft_split(char const *s, char c);
 int		check_name(char *str);
-int		ft_strcmp(char *s1,  char *s2);
+int		ft_strcmp(const char *s1, const char *s2);
 int		free_board(char **map, int fd);
 int		free_int_board(int **clone, t_map *map);
 int		check_map_basics(t_map *map);
 int		check_first_last_row(int y, t_map *map);
-int 	check_middle_map_walls(t_map *map);
-int 	check_other_char(t_map *map);
+int		check_middle_map_walls(t_map *map);
+int		check_other_char(t_map *map);
 int		first_sort(t_map *map);
 int		is_safe(t_map *map, int x, int y);
 int		image_initialization(t_map *map);
 int		map_generation(t_map *map);
-int 	select_image(t_map *map, int posx, int posy);
+int		select_image(t_map *map, int posx, int posy);
 int		special_images(t_map *map, int posx, int posy);
-int 	key_pressed(int keycode, t_map *map);
-void 	move_player_negativ_x(t_map *map, int move);
-void 	move_player_positiv_x(t_map *map, int move);
-void 	move_player_negativ_y(t_map *map, int move);
-void 	move_player_positiv_y(t_map *map, int move);
-void 	replace_player_image(t_map *map, int posy, int posx, int move);
+int		key_pressed(int keycode, t_map *map);
+void	move_player_negativ_x(t_map *map, int move);
+void	move_player_positiv_x(t_map *map, int move);
+void	move_player_negativ_y(t_map *map, int move);
+void	move_player_positiv_y(t_map *map, int move);
+void	replace_player_image(t_map *map, int posy, int posx, int move);
 void	replace_if_exit(t_map *map, int posy, int posx);
-int 	close_window(int keycode, t_map *map);
+int		close_window(int keycode, t_map *map);
 int		search_recursive(t_map *map, char **clone, int x, int y);
 void	replace_if_exit(t_map *map, int posy, int posx);
 
