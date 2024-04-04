@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   image_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
+/*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 14:54:55 by bproton           #+#    #+#             */
-/*   Updated: 2024/04/03 16:11:46 by bproton          ###   ########.fr       */
+/*   Updated: 2024/04/04 10:20:16 by proton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,10 @@ int	key_pressed(int keycode, t_map *map)
 int	close_window(int keycode, t_map *map)
 {
 	(void)keycode;
-	mlx_clear_window(map->mlx, map->win);
-	free_board(map->map, 0);
-	mlx_destroy_image(map->mlx, map->img);
-	mlx_destroy_window(map->mlx, map->win);
+	(void)map;
+	// mlx_clear_window(map->mlx, map->win);
+	// free_board(map->map, 0);
+	// mlx_destroy_image(map->mlx, map->img);
+	// mlx_destroy_window(map->mlx, map->win);
 	exit(0);
 }

@@ -6,7 +6,7 @@
 /*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:47:30 by proton            #+#    #+#             */
-/*   Updated: 2024/04/03 18:55:39 by proton           ###   ########.fr       */
+/*   Updated: 2024/04/04 10:17:58 by proton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,9 @@ int	main(int argc, char **argv)
 		fd = open(argv[1], O_RDONLY);
 		if (fd == -1)
 			return (OPEN_FAULT);
-		if (!(map.map = make_map(fd)) && map.map)
-			return (free_board(map.map, fd));
+		map.map = make_map(fd);
+		if (!(map.map))
+			return (1);
 		initialize_map(&map);
 		if (fill_map_struct(&map))
 			return (free_board(map.map, fd));

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   image_gestion.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
+/*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 10:12:24 by proton            #+#    #+#             */
-/*   Updated: 2024/04/03 16:11:45 by bproton          ###   ########.fr       */
+/*   Updated: 2024/04/04 09:53:52 by proton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	image_initialization(t_map *map)
 			((map->y + 1) * 32), "so_long");
 	map_generation(map);
 	mlx_hook(map->win, 2, 1L << 0, key_pressed, map);
-	mlx_hook(map->win, 17, 1L << 2, close_window, map);
+	mlx_hook(map->win, 17, 1L << 0, close_window, map);
 	mlx_loop(map->mlx);
 	return (0);
 }
