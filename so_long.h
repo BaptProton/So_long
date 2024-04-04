@@ -6,7 +6,7 @@
 /*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:47:41 by proton            #+#    #+#             */
-/*   Updated: 2024/04/04 15:53:16 by bproton          ###   ########.fr       */
+/*   Updated: 2024/04/04 16:22:27 by bproton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ typedef struct s_map
 char	**ft_split(char const *s, char c);
 int		check_name(char *str);
 int		ft_strcmp(const char *s1, const char *s2);
-int		free_board(char **map, int fd);
+int		free_board(char **map);
 int		check_map_basics(t_map *map);
 int		check_first_last_row(int y, t_map *map);
 int		check_middle_map_walls(t_map *map);

@@ -6,7 +6,7 @@
 /*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 14:54:55 by bproton           #+#    #+#             */
-/*   Updated: 2024/04/04 15:04:13 by bproton          ###   ########.fr       */
+/*   Updated: 2024/04/04 16:23:14 by bproton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	close_window(t_map *map)
 	if (map->mlx && map->win)
 		mlx_clear_window(map->mlx, map->win);
 	if (map->map)
-		free_board(map->map, 0);
+		free_board(map->map);
 	if (map->mlx && map->win)
 		mlx_destroy_window(map->mlx, map->win);
 	exit (0);

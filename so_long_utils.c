@@ -6,13 +6,13 @@
 /*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 17:35:26 by proton            #+#    #+#             */
-/*   Updated: 2024/04/04 15:48:09 by bproton          ###   ########.fr       */
+/*   Updated: 2024/04/04 16:19:15 by bproton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	free_board(char **map, int fd)
+int	free_board(char **map)
 {
 	int	i;
 
@@ -23,8 +23,6 @@ int	free_board(char **map, int fd)
 			free(map[i]);
 		free(map);
 	}
-	if (fd != 0)
-		close(fd);
 	return (1);
 }
 

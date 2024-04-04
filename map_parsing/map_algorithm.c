@@ -6,7 +6,7 @@
 /*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 17:35:20 by proton            #+#    #+#             */
-/*   Updated: 2024/04/04 15:34:41 by bproton          ###   ########.fr       */
+/*   Updated: 2024/04/04 16:24:15 by bproton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	**clone_map(t_map *map)
 		clone[y] = (char *)malloc(sizeof(char) * map->x);
 		if (!clone[y])
 		{
-			free_board(clone, 0);
+			free_board(clone);
 			return (NULL);
 		}
 		x = -1;
@@ -95,12 +95,12 @@ int	first_sort(t_map *map)
 			{
 				if (!search_recursive(map, clone, x, y))
 				{
-					free_board(clone, 0);
+					free_board(clone);
 					return (ft_putstr(MAP_ERROR));
 				}
 			}
 		}
 	}
-	free_board(clone, 0);
+	free_board(clone);
 	return (0);
 }

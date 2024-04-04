@@ -6,7 +6,7 @@
 /*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:47:30 by proton            #+#    #+#             */
-/*   Updated: 2024/04/04 15:33:54 by bproton          ###   ########.fr       */
+/*   Updated: 2024/04/04 16:22:38 by bproton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,14 +108,14 @@ int	main(int argc, char **argv)
 			return (1);
 		initialize_map(&map);
 		if (fill_map_struct(&map))
-			return (free_board(map.map, fd));
+			return (free_board(map.map));
 		if (check_map_integrity(&map))
-			return (free_board(map.map, fd));
+			return (free_board(map.map));
 		if (first_sort(&map))
-			return (free_board(map.map, fd));
+			return (free_board(map.map));
 		if (image_initialization(&map))
-			return (free_board(map.map, fd));
-		free_board(map.map, fd);
+			return (free_board(map.map));
+		free_board(map.map);
 	}
 	return (0);
 }

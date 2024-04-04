@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: bproton <bproton@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/02/22 17:21:02 by proton            #+#    #+#              #
-#    Updated: 2024/04/04 13:45:38 by bproton          ###   ########.fr        #
+#    Created: 2024/02/22 16:05:13 by bproton           #+#    #+#              #
+#    Updated: 2024/04/04 16:13:45 by bproton          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,4 +43,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-
