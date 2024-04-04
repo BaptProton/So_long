@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   image_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 14:54:55 by bproton           #+#    #+#             */
-/*   Updated: 2024/04/04 10:20:16 by proton           ###   ########.fr       */
+/*   Updated: 2024/04/04 15:04:13 by bproton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	key_pressed(int keycode, t_map *map)
 {
 	(void)map;
 	if (keycode == ESC_KEY)
-		close_window(keycode, map);
+		close_window(map);
 	if (keycode == W_KEY)
 		move_player_negativ_y(map, keycode);
 	else if (keycode == S_KEY)
@@ -63,13 +63,15 @@ int	key_pressed(int keycode, t_map *map)
 	return (1);
 }
 
-int	close_window(int keycode, t_map *map)
+int	close_window(t_map *map)
 {
-	(void)keycode;
-	(void)map;
-	// mlx_clear_window(map->mlx, map->win);
-	// free_board(map->map, 0);
-	// mlx_destroy_image(map->mlx, map->img);
-	// mlx_destroy_window(map->mlx, map->win);
-	exit(0);
+	if (map->mlx && map->img)
+		mlx_destroy_image(map->mlx, map->img);
+	if (map->mlx && map->win)
+		mlx_clear_window(map->mlx, map->win);
+	if (map->map)
+		free_board(map->map, 0);
+	if (map->mlx && map->win)
+		mlx_destroy_window(map->mlx, map->win);
+	exit (0);
 }

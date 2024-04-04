@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 17:35:26 by proton            #+#    #+#             */
-/*   Updated: 2024/04/03 18:53:54 by proton           ###   ########.fr       */
+/*   Updated: 2024/04/04 15:34:05 by bproton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,3 +55,13 @@ int	check_name(char *str)
 		return (0);
 	return (1);
 }
+
+// int	ft_putstr(char *str)
+// {
+// 	int	i;
+
+// 	i = -1;
+// 	while (str[++i])
+// 		write (1, &str[i], 1);
+// 	return (0);
+// }

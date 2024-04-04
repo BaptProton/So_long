@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:47:30 by proton            #+#    #+#             */
-/*   Updated: 2024/04/04 10:17:58 by proton           ###   ########.fr       */
+/*   Updated: 2024/04/04 15:33:54 by bproton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static int	fill_map_struct(t_map *map)
 		if (map->x != 0)
 		{
 			if (map->x < x || map->x > x)
-				return (SIZE_ERROR);
+				return (ft_putstr(SIZE_ERROR));
 		}
 		map->x = x;
 	}
@@ -99,10 +99,10 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		if (!check_name(argv[1]))
-			return (NAME_FILE);
+			return (ft_putstr(NAME_FILE));
 		fd = open(argv[1], O_RDONLY);
 		if (fd == -1)
-			return (OPEN_FAULT);
+			return (ft_putstr(OPEN_FAULT));
 		map.map = make_map(fd);
 		if (!(map.map))
 			return (1);

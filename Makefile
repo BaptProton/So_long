@@ -6,13 +6,13 @@
 #    By: bproton <bproton@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/22 17:21:02 by proton            #+#    #+#              #
-#    Updated: 2024/04/03 16:21:02 by bproton          ###   ########.fr        #
+#    Updated: 2024/04/04 13:45:38 by bproton          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I./map_parsing -I./image_related
+CFLAGS = -Wall -Wextra -Werror -g -I./map_parsing -I./image_related
 SRC =	so_long.c ft_split.c so_long_utils.c ./map_parsing/parsing_utils.c \
 		./map_parsing/map_algorithm.c ./image_related/image_gestion.c \
 		./image_related/image_utils.c ./image_related/moves_player.c \

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves_player.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 15:28:10 by bproton           #+#    #+#             */
-/*   Updated: 2024/04/03 19:04:20 by proton           ###   ########.fr       */
+/*   Updated: 2024/04/04 15:04:42 by bproton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	move_player_negativ_x(t_map *map, int move)
 		map->x_pos -= 1;
 		replace_player_image(map, map->y_pos * 32, map->x_pos * 32, 2);
 		if (map->map[map->y_pos][map->x_pos] == 'E' && map->coins == 0)
-			close_window(move, map);
+			close_window(map);
 	}
 }
 
@@ -48,7 +48,7 @@ void	move_player_positiv_x(t_map *map, int move)
 		map->x_pos += 1;
 		replace_player_image(map, map->y_pos * 32, map->x_pos * 32, 2);
 		if (map->map[map->y_pos][map->x_pos] == 'E' && map->coins == 0)
-			close_window(move, map);
+			close_window(map);
 	}
 }
 
@@ -68,7 +68,7 @@ void	move_player_negativ_y(t_map *map, int move)
 		map->y_pos -= 1;
 		replace_player_image(map, map->y_pos * 32, map->x_pos * 32, 2);
 		if (map->map[map->y_pos][map->x_pos] == 'E' && map->coins == 0)
-			close_window(move, map);
+			close_window(map);
 	}
 }
 
@@ -88,6 +88,6 @@ void	move_player_positiv_y(t_map *map, int move)
 		map->y_pos += 1;
 		replace_player_image(map, map->y_pos * 32, map->x_pos * 32, 2);
 		if (map->map[map->y_pos][map->x_pos] == 'E' && map->coins == 0)
-			close_window(move, map);
+			close_window(map);
 	}
 }

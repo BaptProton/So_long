@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:47:41 by proton            #+#    #+#             */
-/*   Updated: 2024/04/03 19:01:42 by proton           ###   ########.fr       */
+/*   Updated: 2024/04/04 15:14:22 by bproton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,16 @@
 # define D_KEY 2
 # define BUFFER_SIZE 5000
 
-# define TOP_BOT_WALL_ERROR write(1, "Error\nTop bot wall error\n", 25)
-# define SIDE_WALL_ERROR write(1, "Error\nSide wall error\n", 22)
-# define PLAYER_ERROR write (1, "Error\nPlayer error\n", 19)
-# define COIN_ERROR write (1, "Error\nCoins error\n", 18)
-# define EXIT_ERROR write (1, "Error\nExit error\n", 17)
-# define SIZE_ERROR write (1, "Error\nMap size error\n", 21)
-# define NOT_RECO_ERROR write (1, "Error\nWrong syntax error\n", 25)
-# define MAP_ERROR write (1, "Error\nMap error\n", 16)
-# define NAME_FILE write (1, "Error\nWrong name\n", 17)
-# define OPEN_FAULT write (1, "Error\nOpen error\n", 17)
+# define TOP_BOT_WALL_ERROR "Error\nTop bot wall error\n"
+# define SIDE_WALL_ERROR "Error\nSide wall error\n"
+# define PLAYER_ERROR "Error\nPlayer error\n"
+# define COIN_ERROR  "Error\nCoins error\n"
+# define EXIT_ERROR  "Error\nExit error\n"
+# define SIZE_ERROR  "Error\nMap size error\n"
+# define NOT_RECO_ERROR  "Error\nWrong syntax error\n"
+# define MAP_ERROR  "Error\nMap error\n"
+# define NAME_FILE  "Error\nWrong name\n"
+# define OPEN_FAULT  "Error\nOpen error\n"
 
 typedef struct s_map
 {
@@ -63,7 +63,6 @@ char	**ft_split(char const *s, char c);
 int		check_name(char *str);
 int		ft_strcmp(const char *s1, const char *s2);
 int		free_board(char **map, int fd);
-int		free_int_board(int **clone, t_map *map);
 int		check_map_basics(t_map *map);
 int		check_first_last_row(int y, t_map *map);
 int		check_middle_map_walls(t_map *map);
@@ -81,7 +80,7 @@ void	move_player_negativ_y(t_map *map, int move);
 void	move_player_positiv_y(t_map *map, int move);
 void	replace_player_image(t_map *map, int posy, int posx, int move);
 void	replace_if_exit(t_map *map, int posy, int posx);
-int		close_window(int keycode, t_map *map);
+int		close_window(t_map *map);
 int		search_recursive(t_map *map, char **clone, int x, int y);
 void	replace_if_exit(t_map *map, int posy, int posx);
 
