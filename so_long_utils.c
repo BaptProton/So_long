@@ -6,7 +6,7 @@
 /*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 17:35:26 by proton            #+#    #+#             */
-/*   Updated: 2024/04/04 15:34:05 by bproton          ###   ########.fr       */
+/*   Updated: 2024/04/04 15:48:09 by bproton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,3 @@ int	check_name(char *str)
 		return (0);
 	return (1);
 }
-
-// int	ft_putstr(char *str)
-// {
-// 	int	i;
-
-// 	i = -1;
-// 	while (str[++i])
-// 		write (1, &str[i], 1);
-// 	return (0);
-// }
