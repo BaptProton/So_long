@@ -3,42 +3,61 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bproton <bproton@student.42.fr>            +#+  +:+       +#+         #
+#    By: proton <proton@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/22 16:05:13 by bproton           #+#    #+#              #
-#    Updated: 2024/04/04 16:13:45 by bproton          ###   ########.fr        #
+#    Updated: 2026/02/16 16:25:56 by proton           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g -I./map_parsing -I./image_related
-SRC =	so_long.c ft_split.c so_long_utils.c ./map_parsing/parsing_utils.c \
-		./map_parsing/map_algorithm.c ./image_related/image_gestion.c \
-		./image_related/image_utils.c ./image_related/moves_player.c \
+CFLAGS = -Wall -Wextra -Werror -g
+INCLUDES = -I. -I./map_parsing -I./image_related -I./ft_printf -I./minilibx-linux
 
+SRC =	so_long.c \
+		ft_split.c \
+		so_long_utils.c \
+		map_parsing/parsing_utils.c \
+		map_parsing/map_algorithm.c \
+		image_related/image_gestion.c \
+		image_related/image_utils.c \
+		image_related/moves_player.c
 
-OBJECTS = $(SRC:.c=.o)
+OBJ_DIR = obj
+OBJECTS = $(SRC:%.c=$(OBJ_DIR)/%.o)
+
+MLX_DIR = minilibx-linux
+MLX_LIB = $(MLX_DIR)/libmlx.a
+
+PRINTF_DIR = ft_printf
+PRINTF_LIB = $(PRINTF_DIR)/libftprintf.a
+
+LDLIBS = -L$(MLX_DIR) -lmlx -L$(PRINTF_DIR) -lftprintf -L/usr/lib -lXext -lX11 -lm -lz
 
 all: $(NAME)
 
-libmlx.a:
-	$(MAKE) -C minilibx
+$(MLX_LIB):
+	$(MAKE) -C $(MLX_DIR)
 
-libftprintf.a:
-	$(MAKE) -C ft_printf
+$(PRINTF_LIB):
+	$(MAKE) -C $(PRINTF_DIR)
 
-$(NAME): $(OBJECTS)
-	$(CC) $(OBJECTS) -Lft_printf -lftprintf -Lminilibx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+$(NAME): $(OBJECTS) $(MLX_LIB) $(PRINTF_LIB)
+	$(CC) $(CFLAGS) $(OBJECTS) $(LDLIBS) -o $(NAME)
 
-%.o : %.c
-	$(CC) $(CFLAGS) -Iminilibx -c $< -o $@
+$(OBJ_DIR)/%.o: %.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	rm -f $(NAME) $(OBJECTS)
+	rm -rf $(OBJ_DIR)
+	$(MAKE) -C $(PRINTF_DIR) clean
+	$(MAKE) -C $(MLX_DIR) clean
 
 fclean: clean
 	rm -f $(NAME)
+	$(MAKE) -C $(PRINTF_DIR) fclean
 
 re: fclean all
 

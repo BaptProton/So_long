@@ -1,3 +1,7 @@
-*.o
-*.vscode
-*.DS_Store
+obj/
+so_long
+
+.vscode/
+.DS_Store
+*.swp
+*~
