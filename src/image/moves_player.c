@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   moves_player.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
+/*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 15:28:10 by bproton           #+#    #+#             */
-/*   Updated: 2024/04/04 16:04:23 by bproton          ###   ########.fr       */
+/*   Updated: 2026/02/17 12:10:25 by proton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../../include/so_long.h"
 
 void	move_player_negativ_x(t_map *map, int move)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   image_gestion.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
+/*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 10:12:24 by proton            #+#    #+#             */
-/*   Updated: 2024/04/04 14:56:37 by bproton          ###   ########.fr       */
+/*   Updated: 2026/02/17 12:10:25 by proton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../../include/so_long.h"
 
 int	special_images(t_map *map, int posx, int posy)
 {
@@ -21,11 +21,11 @@ int	special_images(t_map *map, int posx, int posy)
 	else if (map->map[map->y_new][map->x_new] == '1')
 		return (0);
 	else if (map->map[map->y_new][map->x_new] == 'E')
-		path = "./image_related/Extract.xpm";
+		path = "./assets/Extract.xpm";
 	else if (map->map[map->y_new][map->x_new] == 'C')
-		path = "./image_related/coins.xpm";
+		path = "./assets/coins.xpm";
 	else
-		path = "./image_related/player.xpm";
+		path = "./assets/player.xpm";
 	map->img = mlx_xpm_file_to_image(map->mlx, path, &map->img_w, &map->img_h);
 	mlx_put_image_to_window(map->mlx, map->win, map->img, posx, posy);
 	return (1);
@@ -38,9 +38,9 @@ int	select_image(t_map *map, int posx, int posy)
 	map->img_w = 32;
 	map->img_h = 32;
 	if (map->map[map->y_new][map->x_new] == '1')
-		path = "./image_related/walls.xpm";
+		path = "./assets/walls.xpm";
 	else
-		path = "./image_related/floor.xpm";
+		path = "./assets/floor.xpm";
 	map->img = mlx_xpm_file_to_image(map->mlx, path, &map->img_w, &map->img_h);
 	mlx_put_image_to_window(map->mlx, map->win, map->img, posx, posy);
 	return (1);

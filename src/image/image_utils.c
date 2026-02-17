@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   image_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bproton <bproton@student.42.fr>            +#+  +:+       +#+        */
+/*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 14:54:55 by bproton           #+#    #+#             */
-/*   Updated: 2024/04/04 16:23:14 by bproton          ###   ########.fr       */
+/*   Updated: 2026/02/17 12:10:25 by proton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../../include/so_long.h"
 
 void	replace_player_image(t_map *map, int posy, int posx, int move)
 {
 	char	*path_floor;
 	char	*path_player;
 
-	path_floor = "./image_related/floor.xpm";
-	path_player = "./image_related/player.xpm";
+	path_floor = "./assets/floor.xpm";
+	path_player = "./assets/player.xpm";
 	if (move == 1)
 	{
 		map->img = mlx_xpm_file_to_image(map->mlx, path_floor,
@@ -42,7 +42,7 @@ void	replace_if_exit(t_map *map, int posy, int posx)
 {
 	char	*path;
 
-	path = "./image_related/Extract.xpm";
+	path = "./assets/Extract.xpm";
 	map->img = mlx_xpm_file_to_image(map->mlx, path, &map->img_w, &map->img_h);
 	mlx_put_image_to_window(map->mlx, map->win, map->img, posx, posy);
 }

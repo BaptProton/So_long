@@ -6,31 +6,31 @@
 #    By: proton <proton@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/22 16:05:13 by bproton           #+#    #+#              #
-#    Updated: 2026/02/16 16:25:56 by proton           ###   ########.fr        #
+#    Updated: 2026/02/17 12:08:29 by proton           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g
-INCLUDES = -I. -I./map_parsing -I./image_related -I./ft_printf -I./minilibx-linux
+INCLUDES = -Iinclude -Ilib/ft_printf -Ilib/minilibx-linux
 
-SRC =	so_long.c \
-		ft_split.c \
-		so_long_utils.c \
-		map_parsing/parsing_utils.c \
-		map_parsing/map_algorithm.c \
-		image_related/image_gestion.c \
-		image_related/image_utils.c \
-		image_related/moves_player.c
+SRC =	src/so_long.c \
+		src/utils/ft_split.c \
+		src/utils/so_long_utils.c \
+		src/map/parsing_utils.c \
+		src/map/map_algorithm.c \
+		src/image/image_gestion.c \
+		src/image/image_utils.c \
+		src/image/moves_player.c
 
 OBJ_DIR = obj
 OBJECTS = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
-MLX_DIR = minilibx-linux
+MLX_DIR = lib/minilibx-linux
 MLX_LIB = $(MLX_DIR)/libmlx.a
 
-PRINTF_DIR = ft_printf
+PRINTF_DIR = lib/ft_printf
 PRINTF_LIB = $(PRINTF_DIR)/libftprintf.a
 
 LDLIBS = -L$(MLX_DIR) -lmlx -L$(PRINTF_DIR) -lftprintf -L/usr/lib -lXext -lX11 -lm -lz

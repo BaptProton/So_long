@@ -6,7 +6,7 @@
 /*   By: proton <proton@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:47:41 by proton            #+#    #+#             */
-/*   Updated: 2026/02/16 16:31:57 by proton           ###   ########.fr       */
+/*   Updated: 2026/02/17 12:10:25 by proton           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include <math.h>
 # include <unistd.h>
 # include <fcntl.h>
-# include "mlx.h"
-# include "ft_printf/ft_printf.h"
+# include "../lib/minilibx-linux/mlx.h"
+# include "../lib/ft_printf/ft_printf.h"
 
 # define ESC_KEY 65307
 # define W_KEY 119
